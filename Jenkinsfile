@@ -1,6 +1,6 @@
 node {
     stage ('Checkout') {
-        git branch:'master', url: 'https://github.com/uhafner/codingstyle.git'
+        git branch:env.BRANCH_NAME, url: 'https://github.com/XiongKezhi/Sandbox'
     }
 
     stage ('Build and Static Analysis') {
