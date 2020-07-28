@@ -21,15 +21,6 @@ node {
             qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
     }
 
-    stage ('Line and Branch Coverage') {
-        withMaven {
-            sh "mvn -V -U -e jacoco:prepare-agent test jacoco:report -Dmaven.test.failure.ignore"
-        }
-        publishCoverage adapters: [jacocoAdapter('**/*/jacoco.xml')], 
-            sourceFileResolver: sourceFiles('STORE_ALL_BUILD'), 
-            calculateDiffForChangeRequests: true
-    }
-
     stage ('Collect Maven Warnings') {
         recordIssues tool: mavenConsole()
     }
