@@ -10,7 +10,6 @@ import java.util.Objects;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.Nullable;
 
 /**
@@ -122,7 +121,7 @@ public class PathUtil {
      *
      * @return the relative path
      */
-    public String getRelativePath(@CheckForNull Path base, String path) {
+    public String getRelativePath(final Path base, final String path) {
         try {
             return getRelativePath(base, Paths.get(path));
         }
@@ -145,7 +144,7 @@ public class PathUtil {
      *
      * @return the relative path
      */
-    public String getRelativePath(@CheckForNull final String base, final String path) {
+    public String getRelativePath(final String base, final String path) {
         try {
             return getRelativePath(Paths.get(base), Paths.get(path));
         }
@@ -237,7 +236,8 @@ public class PathUtil {
 
         String separator;
         if (path.endsWith(SLASH)) {
-            separator = StringUtils.EMPTY; }
+            separator = StringUtils.EMPTY;
+        }
         else {
             separator = SLASH;
         }
@@ -259,7 +259,7 @@ public class PathUtil {
      *
      * @return {@code true} if this path is an absolute path, {@code false} if a relative path
      */
-    public boolean isAbsolute( String fileName) {
+    public boolean isAbsolute(final String fileName) {
         return FilenameUtils.getPrefixLength(fileName) > 0;
     }
 
