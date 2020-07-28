@@ -84,7 +84,7 @@ public class TreeStringBuilder {
          *
          * @return the node
          */
-        public Child intern(final String string) {
+        public Child intern(String string) {
             if (string.isEmpty()) {
                 return this;
             }
@@ -136,10 +136,7 @@ public class TreeStringBuilder {
          *
          * @param prefix
          *         the prefix
-         *
-         * @return the node
          */
-        @CheckForNull
         private Child split(final String prefix) {
             String suffix = getNode().getLabel().substring(prefix.length());
 
@@ -147,7 +144,7 @@ public class TreeStringBuilder {
             middle.makeWritable();
             middle.children.put(suffix, this);
 
-            return middle;
+            return null;
         }
 
         /**
