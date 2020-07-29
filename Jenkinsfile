@@ -1,6 +1,6 @@
 node {
     stage ('Checkout') {
-        git branch:'master', url: 'https://github.com/uhafner/codingstyle.git'
+        git branch:'code-coverage', url: 'https://github.com/XiongKezhi/codingstyle.git'
     }
 
     stage ('Line and Branch Coverage') {
