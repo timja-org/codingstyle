@@ -1,6 +1,6 @@
 node {
     stage ('Checkout') {
-        git branch:'new-issues', url: 'https://github.com/timja/codingstyle.git'
+        git branch:'new-issues', url: 'https://github.com/timja-org/codingstyle.git'
     }
 
     stage ('Build and Static Analysis') {
