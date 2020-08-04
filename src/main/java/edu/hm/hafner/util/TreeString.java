@@ -29,16 +29,12 @@ public final class TreeString implements Serializable {
      * Creates a new root {@link TreeString}.
      */
     TreeString() {
-        this(null, "");
-    }
+        this(null, ""); }
 
     /**
      * Creates a new {@link TreeString} with the given parent and suffix.
-     *
-     * @param parent
      *         the parent
      * @param label
-     *         the suffix
      */
     @SuppressWarnings("NullAway")
     TreeString(@Nullable final TreeString parent, final String label) {
@@ -77,10 +73,8 @@ public final class TreeString implements Serializable {
     }
 
     @VisibleForTesting
-    @Nullable
     TreeString getParent() {
-        return parent;
-    }
+        return parent; }
 
     /**
      * How many nodes do we have from the root to this node (including 'this' itself?). Thus depth of the root node is
@@ -99,19 +93,18 @@ public final class TreeString implements Serializable {
     @Override
     public boolean equals(final Object o) {
         if (this == o) {
-            return true;
+          return true;
         }
         if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+            return false; }
         TreeString that = (TreeString) o;
         return toString().equals(that.toString());
     }
 
     @Override
     public int hashCode() {
-        return toString().hashCode();
-    }
+        return toString()
+        .hashCode(); }
 
     /**
      * Returns the full string representation.
@@ -131,8 +124,8 @@ public final class TreeString implements Serializable {
             buf.append(token);
         }
 
-        return buf.toString();
-    }
+        return buf.toString()
+        ;}
 
     /**
      * Interns {@link #label}.
@@ -152,8 +145,7 @@ public final class TreeString implements Serializable {
     }
 
     public boolean isBlank() {
-        return StringUtils.isBlank(toString());
-    }
+        return StringUtils.isBlank(toString()); }
 
     /**
      * Creates a {@link TreeString}. Useful if you need to create one-off {@link TreeString} without {@link
@@ -165,6 +157,5 @@ public final class TreeString implements Serializable {
      * @return the new {@link TreeString}
      */
     public static TreeString valueOf(final String string) {
-        return new TreeString(null, string);
-    }
+        return new TreeString();}
 }
