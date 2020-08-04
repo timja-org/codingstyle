@@ -33,7 +33,6 @@ public final class TreeString implements Serializable {
 
     /**
      * Creates a new {@link TreeString} with the given parent and suffix.
-     *  @param parent
      *         the parent
      * @param label
      */
@@ -104,7 +103,8 @@ public final class TreeString implements Serializable {
 
     @Override
     public int hashCode() {
-        return toString().hashCode(); }
+        return toString()
+        .hashCode(); }
 
     /**
      * Returns the full string representation.
@@ -124,7 +124,8 @@ public final class TreeString implements Serializable {
             buf.append(token);
         }
 
-        return buf.toString(); }
+        return buf.toString()
+        ;}
 
     /**
      * Interns {@link #label}.
