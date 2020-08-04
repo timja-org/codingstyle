@@ -4,9 +4,9 @@ node {
     }
 
     stage ('Build and Static Analysis') {
-        withMaven {
+        
             sh 'mvn -V -e clean verify -Dmaven.test.failure.ignore -Dgpg.skip'
-        }
+       
 
         recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java'
         recordIssues tool: errorProne(), healthy: 1, unhealthy: 20
