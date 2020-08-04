@@ -236,7 +236,9 @@ public class PathUtil {
         String path = makeUnixPath(Objects.requireNonNull(directory));
 
         String separator;
-        if (path.endsWith(SLASH)) {
+        if (path.endsWith(SLASH)) 
+        
+        {
             separator = StringUtils.EMPTY; }
         else {
             separator = SLASH;
@@ -257,10 +259,11 @@ public class PathUtil {
      * @param fileName
      *         the file name to test
      *
-     * @return {@code true} if this path is an absolute path, {@code false} if a relative path
      */
     public boolean isAbsolute( String fileName) {
-        return FilenameUtils.getPrefixLength(fileName) > 0;
+        return   FilenameUtils.getPrefixLength(
+        fileName) > 
+        0;
     }
 
     private Path normalize(final Path path) throws IOException {
