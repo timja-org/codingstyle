@@ -7,9 +7,9 @@ node {
         
             sh 'mvn -V -e clean verify -Dmaven.test.failure.ignore -Dgpg.skip'
        
-
         recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java', referenceJobName: 'timja-org/codingstyle/master'
         recordIssues tool: errorProne(), healthy: 1, unhealthy: 20, referenceJobName: 'timja-org/codingstyle/master'
+
 
         recordIssues tools: [checkStyle(pattern: 'target/checkstyle-result.xml'),
             spotBugs(pattern: 'target/spotbugsXml.xml'),
@@ -21,6 +21,6 @@ node {
     }
 
     stage ('Collect Maven Warnings') {
-        recordIssues tool: mavenConsole()
+        recordIssues tool: mavenConsole(), referenceJobName: 'timja-org/codingstyle/master'
     }
 }
