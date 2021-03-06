@@ -5,7 +5,7 @@ node {
 
     stage ('Build and Static Analysis') {
         
-         sh 'mvn -V -e clean verify -Dmaven.test.failure.ignore -Dgpg.skip'
+         sh 'mvn -B --show-version -V -e clean verify -Dmaven.test.failure.ignore -Dgpg.skip'
        
         junit 'target/**/TEST-*.xml'
 
